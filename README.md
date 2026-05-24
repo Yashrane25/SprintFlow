@@ -1,50 +1,57 @@
-# 🚀 SprintFlow — MERN Project Management Dashboard (Phase 4)
+# 🚀 SprintFlow — MERN Project Management Dashboard
 
-A **Jira-inspired Project Management Dashboard** built using the MERN Stack (MongoDB, Express, React, Node.js).
+A modern **Jira-inspired Project Management System** built using the MERN Stack (MongoDB, Express, React, Node.js).
 
-This project is currently completed up to **Phase 4 (Authentication + Dashboard Layout + Project Management UI foundation)**.
-
-It demonstrates a **real-world SaaS-style architecture** with authentication, protected routes, reusable layouts, and interactive project dashboard UI.
+SprintFlow is designed to simulate real-world SaaS project management tools like Jira and Trello, with a clean dashboard, authentication system, and project-level workflow management.
 
 ---
 
 # 📌 Project Overview
 
-SprintFlow is a simplified project tracking system where users can:
+SprintFlow is a full-stack web application that allows users to:
 
 - Register and login securely
-- Access protected dashboard routes
-- Create and view projects
-- Navigate through a modern sidebar layout
-- Experience a clean SaaS-style dashboard UI
+- Access a protected dashboard
+- Create and manage projects
+- View projects in a clean card-based UI
+- Navigate through a modern sidebar dashboard layout
+- Interact with a responsive SaaS-style interface
 
-The goal of this project is to simulate **real-world project management tools like Jira / Trello (basic version)**.
+The application focuses on **real-world architecture, authentication flow, and scalable frontend structure**.
 
 ---
 
-# 🧠 Current Implementation (Phase 4 Completed)
+# ✨ Features Implemented
 
-## ✅ Backend (Completed)
-- User Authentication (Register/Login)
+## 🔐 Authentication System
+- User Registration
+- User Login
 - JWT-based authentication
+- Protected routes (frontend + backend)
 - Password hashing using bcrypt
-- Protected API routes using middleware
-- MongoDB database integration using Mongoose
 
-## ✅ Frontend (Completed)
-- React + Vite setup
-- Bootstrap-based responsive UI
-- Authentication pages (Login/Register)
-- Global Auth Context (state management)
-- Protected Routes system
-- Dashboard layout with sidebar + navbar
-- Project listing page (UI + API integration)
-- Project creation modal (UI functional)
-- Axios API integration with JWT interceptor
+## 📊 Dashboard UI
+- Responsive sidebar navigation
+- Top navigation bar with user info
+- Clean SaaS-style layout
+- Reusable layout system
+
+## 📁 Project Management
+- Create new projects
+- View all projects in card format
+- Project creation modal
+- Project data stored in MongoDB
+- API integration using Axios
+
+## ⚙️ System Design
+- REST API architecture
+- Context API for global authentication state
+- Axios interceptor for JWT handling
+- Clean separation of frontend and backend
 
 ---
 
-# 🏗️ Tech Stack
+# 🛠️ Tech Stack
 
 ## Frontend
 - React.js (Vite)
@@ -70,19 +77,19 @@ SprintFlow/
 │
 ├── client/
 │   ├── src/
-│   │   ├── api/              # Axios instance with JWT interceptor
-│   │   ├── context/         # Auth Context (global state)
-│   │   ├── layouts/         # Sidebar + Dashboard layout
-│   │   ├── pages/           # Login, Register, Dashboard, Projects
-│   │   ├── routes/          # ProtectedRoute
+│   │   ├── api/          # Axios instance (JWT interceptor)
+│   │   ├── context/      # Auth Context (global state management)
+│   │   ├── layouts/      # Dashboard layout (Sidebar + Navbar)
+│   │   ├── pages/        # Login, Register, Dashboard, Projects
+│   │   ├── routes/       # ProtectedRoute logic
 │   │   └── App.jsx
 │
 ├── server/
-│   ├── config/              # MongoDB connection
-│   ├── controllers/         # Auth + Project controllers
-│   ├── middleware/          # JWT auth middleware
-│   ├── models/              # User + Project models
-│   ├── routes/              # Auth + Project routes
+│   ├── config/           # Database connection
+│   ├── controllers/      # Auth & Project logic
+│   ├── middleware/       # JWT authentication middleware
+│   ├── models/           # User & Project schemas
+│   ├── routes/           # API routes
 │   └── server.js
 │
 └── README.md
@@ -93,39 +100,17 @@ SprintFlow/
 # 🔐 Authentication Flow
 
 1. User registers or logs in
-2. Backend validates credentials
-3. JWT token is generated and sent to frontend
-4. Token stored in `localStorage`
-5. Axios automatically attaches token in requests
-6. Protected routes validate token via middleware
+2. Server validates credentials
+3. JWT token is generated and sent to client
+4. Token is stored in localStorage
+5. Axios automatically attaches token to API requests
+6. Protected routes verify token on backend
 
 ---
 
-# 📌 Features (Phase 4 Scope)
+# ⚙️ Installation & Setup
 
-## 🔐 Authentication
-- User Registration
-- User Login
-- JWT Authentication
-- Protected Routes
-
-## 📊 Dashboard UI
-- Sidebar Navigation
-- Navbar with user info
-- Responsive layout system
-- Modern SaaS-style UI
-
-## 📁 Project Management (Basic)
-- Create Projects
-- View Projects
-- Project Cards UI
-- Modal-based project creation
-
----
-
-# ⚙️ Installation & Setup Guide
-
-## 📦 Step 1: Clone Repository
+## 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/sprintflow.git
@@ -134,71 +119,50 @@ cd sprintflow
 
 ---
 
-# 🖥️ Backend Setup
-
-## Step 2: Navigate to Server
+## 🖥️ Backend Setup
 
 ```bash
 cd server
-```
-
-## Step 3: Install Dependencies
-
-```bash
 npm install
 ```
 
-## Step 4: Create `.env` file
+### Create `.env` file
 
 ```env
 PORT=5000
-
 MONGO_URI=your_mongodb_connection_string
-
 JWT_SECRET=your_secret_key
 ```
 
-## Step 5: Run Backend
+### Run Backend
 
 ```bash
 npm run dev
 ```
 
-Backend runs on:
+Backend runs at:
 ```
 http://localhost:5000
 ```
 
 ---
 
-# 🎨 Frontend Setup
-
-## Step 6: Navigate to Client
+## 🎨 Frontend Setup
 
 ```bash
 cd client
-```
-
-## Step 7: Install Dependencies
-
-```bash
 npm install
-```
-
-## Step 8: Start Frontend
-
-```bash
 npm run dev
 ```
 
-Frontend runs on:
+Frontend runs at:
 ```
 http://localhost:5173
 ```
 
 ---
 
-# 🔗 API Endpoints (Phase 4)
+# 🔗 API Endpoints
 
 ## Authentication
 
@@ -215,65 +179,57 @@ http://localhost:5173
 |------|----------|-------------|
 | GET | /api/projects | Get all projects |
 | POST | /api/projects | Create project |
-| GET | /api/projects/:id | Get project |
+| GET | /api/projects/:id | Get project details |
 | DELETE | /api/projects/:id | Delete project |
 
 ---
 
-# 🧱 Architecture (Simplified)
+# 🧠 Key Concepts Demonstrated
 
-```
-React (Frontend)
-   ↓ Axios (JWT Token)
-Express (Backend API)
-   ↓ Middleware (Auth Check)
-MongoDB (Database)
-```
-
----
-
-# 🎯 Key Concepts Demonstrated
-
-- Full Stack MERN Architecture
-- JWT Authentication Flow
-- Protected Routes (Frontend + Backend)
-- Context API State Management
-- REST API Design
-- MongoDB Schema Design
-- Component-Based UI Architecture
-- SaaS Dashboard Layout Design
+- Full-stack MERN architecture
+- JWT authentication flow
+- Protected routing (frontend + backend)
+- REST API design
+- MongoDB schema modeling
+- Context API state management
+- Axios interceptor pattern
+- Component-based UI architecture
+- SaaS-style dashboard design
 
 ---
 
-# 📸 UI Overview
+# 📸 UI Highlights
 
-- Login & Register Pages
-- Dashboard Layout (Sidebar + Navbar)
-- Project Listing Cards
-- Modal-based Project Creation
-- Responsive Bootstrap UI
-
----
-
-# 🚧 Current Limitations (Phase 4 State)
-
-- No Kanban Board yet
-- No Task Management system yet
-- No Drag & Drop functionality yet
-- Basic project-level CRUD only
+- Authentication screens (Login / Register)
+- Dashboard with sidebar navigation
+- Project listing interface
+- Modal-based project creation
+- Responsive Bootstrap-based UI
 
 ---
 
-# 🚀 Upcoming Features (Next Phases)
+# 🚧 Current Limitations
+
+The project currently focuses on:
+- Project-level management system
+- Authentication and dashboard foundation
+- Basic CRUD operations for projects
+
+Advanced task-level workflow features are not yet implemented.
+
+---
+
+# 🚀 Future Enhancements
 
 - Kanban Board (To Do / In Progress / Done)
-- Task CRUD system
-- Drag & Drop task movement
-- Dashboard analytics (real-time stats)
+- Task management system
+- Drag & drop task movement
 - Task assignment system
-- Filters & search
-- Toast notifications
-- Advanced UI polish
+- Real-time dashboard analytics
+- Search and filtering system
+- Toast notifications for better UX
+- Advanced role-based access control
+- Activity logs and collaboration features
 
 ---
 
@@ -287,13 +243,13 @@ MERN Stack Developer
 
 # 📄 License
 
-This project is developed for **educational and internship assessment purposes**.
+This project is developed for educational and internship evaluation purposes.
 
 ---
 
 # ⭐ Inspiration
 
-Inspired by:
+Inspired by real-world tools like:
 - Jira
 - Trello
 - Linear
